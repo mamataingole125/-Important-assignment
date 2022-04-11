@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+         margin-left: 500px;
+         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+         width: 300px;
+         margin-top: 100px;
+         padding: 5px;
+         border-radius: 10px;
+        }
+        input{
+         
+            width: 170px;
+            /* padding: 10px; */
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 5px;
+           
+        }
+        form{
+            margin-left: 20px;
+            padding: 20px;
+             }
+             #submit{
+                width: 120px;
+                margin-left: 40px;
+                background-color: teal;
+                color: white;
+                font-size: 20px;
+                height: 40px;
+                padding: 0;
+                border: none;
+             }
+             h1{
+                 margin-left: 70px;
+               margin-bottom: -20px;
+               
+             }
+             #navbar{
+        border: 2px solid;
+        width: 99%;
+        height: 30px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        font-weight: 900;
+        padding: 5px;
+        background-color: teal;
+
+    }
+    #navbar>a:nth-child(2){
+   margin-right:40px;
+
+    }
+    #navbar>a:nth-child(3){
+   margin-right:40px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <a href="Login.html"><div>Login</div></a>
+        <a href="Signup.html"><div>Signup</div></a>
+       <a href="index.html"> <div>Home</div></a>
+     </div>
+    <div id="main">
+        <h1>Singup</h1>
+    <form onsubmit="signupfirst(event)">
+  <input type="text" placeholder="Enter your name" id="name"><br>
+  <input type="number" placeholder="Enter your contact" id="contact"><br>
+  <input type="email" placeholder="Enter your Email" id="email"><br>
+  <input type="password" placeholder="Enter your password" id="password"><br>
+  <input type="submit" id="submit">
+    </form>
+</div>
+</body>
+</html>
+<script>
+
+    var arr=JSON.parse(localStorage.getItem("signupdetails")) || [];
+function signupfirst(event){
+event.preventDefault();
+var obj={
+    name:document.querySelector("#name").value,
+    contact:document.querySelector("#contact").value,
+    email:document.querySelector("#email").value,
+    password:document.querySelector("#password").value,
+
+}
+
+arr.push(obj)
+localStorage.setItem("signupdetails",JSON.stringify(arr))
+document.querySelector("#name").value=null
+document.querySelector("#contact").value=null
+document.querySelector("#email").value=null
+document.querySelector("#password").value=null
+}
+</script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #navbar{
+        border: 2px solid;
+        width: 99%;
+        height: 30px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        font-weight: 900;
+        padding: 5px;
+        background-color: teal;
+
+    }
+    #navbar>a:nth-child(2){
+   margin-right:40px;
+
+    }
+    #navbar>a:nth-child(3){
+   margin-right:40px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    #image{
+        margin-top: 5px;
+      height: 80%;
+    }
+</style>
+</head>
+<body>
+    <div id="navbar">
+        <a href="Login.html"><div>Login</div></a>
+        <a href="Signup.html"><div>Signup</div></a>
+       <a href="index.html"> <div>Home</div></a>
+     </div>
+     <div id="image"></div>
+</body>
+</html>
+<script>
+    let imgdiv=document.querySelector("#image")
+    var img=document.createElement("img")
+    img.style.width="1300px"
+    img.style.height="500px"
+    let arr=[
+    "https://media.istockphoto.com/photos/saver-to-start-movie-picture-id492365655?b=1&k=20&m=492365655&s=170667a&w=0&h=BqfY1iIKF1XvvoFcvstQ0eYAueQ6Oq2jPNBWxv_1ELY=",
+    "https://images.unsplash.com/photo-1623984109622-f9c970ba32fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aXJvbm1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+"https://images.unsplash.com/photo-1649668048087-6f47bbfa95fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0NHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
+"https://images.unsplash.com/photo-1649603899178-8dcd8e8d580f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60"]
+     
+    let i=0
+    setInterval(function(){
+      
+        if(i===arr.length){
+            i=0;
+        }
+        imgdiv.innerHTML=null
+        img.src=arr[i]
+        imgdiv.append(img)
+        i++
+
+    },1000)
+
+</script>

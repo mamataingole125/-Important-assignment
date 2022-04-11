@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="timer"></h1>
+    <button onclick="stop()">stop</button>
+
+    <input type="url" id="url" />
+    <button onclick="storeImage()">submit URL</button>
+</body>
+</html>
+<script>
+var h1=document.getElementById("timer")
+
+var i=0;
+ var id=setInterval(function(){
+    h1.innerText=i;
+    i++
+},1000);
+
+
+function stop(){
+clearInterval(id)
+
+}
+
+
+//======================================================//
+function storeImage(){
+    let image=document.getElementById("url").value
+
+    let imagearr=JSON.parse(localStorage.getItem("images")) || []
+
+    imagearr.push(image)
+
+    localStorage.setItem("images",JSON.stringify(imagearr))
+    document.getElementById("url").value=null
+
+}
+
+
+</script>

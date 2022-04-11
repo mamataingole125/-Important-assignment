@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+   
+    #container{
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+       width: 200px;
+        margin-left: 500px;
+        margin-top: 100px;
+        padding: 50px;
+        border-radius: 10px;
+        height: 200px;
+    }
+    input{
+        margin-top: 20px;
+        margin-left: 20px;
+        padding: 5px;
+    }
+   #sub{
+       margin-left:50px ;
+      width: 110px;
+      color: white;
+      background-color: teal;
+      font-size: 20px;
+      border: navajowhite;
+   }
+   h1{
+       margin-left: 70px;
+       margin-top: -20px;
+   }
+   #navbar{
+        border: 2px solid;
+        width: 99%;
+        height: 30px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        font-weight: 900;
+        padding: 5px;
+        background-color: teal;
+
+    }
+    #navbar>a:nth-child(2){
+   margin-right:40px;
+
+    }
+    #navbar>a:nth-child(3){
+   margin-right:40px;
+    }
+    a{
+        text-decoration: none;
+        color:white;
+    }
+</style>
+<body>
+    <div id="navbar">
+        <a href="Login.html"><div>Login</div></a>
+        <a href="Signup.html"><div>Signup</div></a>
+       <a href="index.html"> <div>Home</div></a>
+     </div>
+    <div id="container">
+        <h1>Login</h1>
+    <form id="main1" onsubmit="mylogin(event)">
+        <input type="email" id="mail" placeholder="Enter Email"><br>
+        <input type="password" id="pass" placeholder="Enter Password"><br>
+        <input type="submit" id="sub">
+    </form>
+   </div>
+</body>
+</html>
+<script>
+    var newarr=JSON.parse(localStorage.getItem("signupdetails")) 
+
+function mylogin(event){
+    event.preventDefault();
+
+    var emailId=document.querySelector("#mail").value
+    var passw=document.querySelector("#pass").value
+
+    for(let i=0; i<newarr.length; i++){
+        if(newarr[i].email==emailId && newarr[i].password==passw){
+            alert("login successful")
+            window.location.href="index.html";
+            break;
+        }else{
+            alert("Invalid Credentials")
+
+        }
+    }
+}
+</script>
